@@ -14,5 +14,6 @@ Styles.css
 Contains centering and styling for html user input features
 One Javascript Page * Contains: * Variables, including arrays and value placeholders * Two event listeners * Two if/else if statements * One function outside of first event listener
 
+<img width="1261" alt="Screen Shot 2021-06-13 at 5 54 29 PM" src="https://user-images.githubusercontent.com/82121166/121823131-3192b100-cc71-11eb-815f-f06ffa09f886.png">
 
 link: https://yussefrafat.github.io/Password-Generator-of-Yuss/
