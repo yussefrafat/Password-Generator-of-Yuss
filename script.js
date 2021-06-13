@@ -6,8 +6,8 @@ var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
 
-number = [0,1,2,3,4,5,6,7,8,9];
-characters = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+number = [1,2,3,4,5,6,7,8,9];
+character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 // for the Uppercase conversion !!!!!
 space = [];
@@ -20,10 +20,9 @@ var toUpper = function (x) {
 // variable for UPPERCASE CONVERSION
 letters2 = letters.map(toUpper);
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+var get = document.querySelector("#generate");
 
-get.addEventListener("click", function () {
+get.addEventListener("click", function() {
     ps = writePassword();
     document.getElementById("password").placeholder = ps;
 });
@@ -38,21 +37,22 @@ function writePassword() {
       // Verifying user input
       // Starts the prompt 
       enter = parseInt(prompt("You have to choose between 8 and 128"));
-  } else {
+  
+    } else {
       /// When user input is confirmmed and approved 
       confirmNumber = confirm("You want numbers in your password?");
       confirmCharacter = confirm("You want special characters?");
       confirmUppercase = confirm("You need Uppercase letters?");
       confirmLowercase = confirm("You ned Lowercase letters?");
-  };
+
+    };
   /// If 4 negative options
   if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
       choices = alert("You need to choose at least ONE ! ");
   }
   ///Else if for 4 positive options
   else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
-      
-    choices = character.concat(number, letters, letters2);
+      choices = character.concat(number, letters, letters2);
   }
   //Else if for 3 positive options 
   else if (confirmCharacter && confirmNumber && confirmUppercase ) {
@@ -63,6 +63,9 @@ function writePassword() {
   }
   else if (confirmCharacter && confirmNumber && confirmUppercase) {
       choices = character.concat(letters, letters2);
+  }
+  else if (confirmNumber && confirmLowercase && confirmUppercase) {
+      choices = number.concat(letters, letters2);
   }
 
   // Else if for 2 positibe options 
@@ -109,5 +112,14 @@ for (var i = 0; i < enter; i++) {
     password.push(pickChoices);
 }
 /// This joins the password array and converts it to a string 
+var ps = password.join('')
+UserInput(ps);
+return ps;
 }
+
+/// This puts the password value into the textbox
+function UserInput(ps) {
+    document.getElementById("password").textContent = ps;
+}
+
 
