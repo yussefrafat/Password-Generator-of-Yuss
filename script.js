@@ -17,18 +17,30 @@ var choices;
 var toUpper = function (x) {
     return x.toUpperCase();
 };
+// variable for UPPERCASE CONVERSION
 letters2 = letters.map(toUpper);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+get.addEventListener("click", function () {
+    ps = writePassword();
+    document.getElementById("password").placeholder = ps;
+});
+
 // Write password to the #password input
 function writePassword() {
-  window.prompt("How many characters would you like to have on your password? Between 8 and 128")
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    // Asking for input
+  enter = parseInt(prompt("How mane characters would you like for your password? between 8 and 128"));
+  if (!enter) {
+     alert("not VALID! put a value");
+  } else if (enter < 8 || enter > 128) {
+      // Verifying user input
+      // Starts the prompt 
+      enter = parseInt(prompt("You have to choose between 8 and 128"));
+  } 
 
-  passwordText.value = password;
+  
 
 }
 
