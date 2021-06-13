@@ -15,3 +15,4 @@ Contains centering and styling for html user input features
 One Javascript Page * Contains: * Variables, including arrays and value placeholders * Two event listeners * Two if/else if statements * One function outside of first event listener
 
 
+link: https://yussefrafat.github.io/Password-Generator-of-Yuss/
